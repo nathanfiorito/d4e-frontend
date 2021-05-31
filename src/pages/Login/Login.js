@@ -1,21 +1,16 @@
 import { useState } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
-import { Redirect } from 'react-router';
-import api from '../../services/api';
+import Auth from '../../services/auth';
 
 import './Login.css';
 
 export default function Login() {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
+  const auth = new Auth();
 
   function submit() {
-    api.post('auth/signin',{
-      username: username,
-      password: password
-    }).then((res) => {
-      localStorage.setItem('accessToken', res.data.accessToken)
-    })
+    auth.signIn(username, password);
   }
 
   return (

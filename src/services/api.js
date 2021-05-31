@@ -4,5 +4,10 @@ const api = axios.create({
     baseURL: 'http://localhost:3001'
 })
 
+const config = {
+    headers: {
+    'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+    }
+}
 
-export default api;
+export { api, config };
