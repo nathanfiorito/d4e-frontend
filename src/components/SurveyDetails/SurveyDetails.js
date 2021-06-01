@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Spinner, Table } from 'react-bootstrap';
+import { Spinner, Table, Button } from 'react-bootstrap';
+import { LinkContainer } from "react-router-bootstrap";
 
 export default function SurveyDetails(props) {
     const survey = props.survey;
@@ -15,6 +16,9 @@ export default function SurveyDetails(props) {
                 <h1>{survey.title}</h1>
                 <h1>{survey.description}</h1>
                 <h1>{survey.status}</h1>
+                <LinkContainer to={`${survey.id}/vote-option`}>
+                    <Button>Adicionar nova opção</Button>
+                </LinkContainer>
                 <Table>
                     <thead>
                         <tr>
