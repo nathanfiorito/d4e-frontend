@@ -1,16 +1,18 @@
 import { useState } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
-import Auth from '../../services/auth';
+import { useHistory } from 'react-router-dom';
+import { signIn } from '../../services/auth';
 
 import './Login.css';
 
 export default function Login() {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
-  const auth = new Auth();
+  const history = useHistory();
 
-  function submit() {
-    auth.signIn(username, password);
+  async function submit() {
+    signIn(username, password);
+    history.push('/');
   }
 
   return (
