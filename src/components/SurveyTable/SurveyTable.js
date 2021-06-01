@@ -1,4 +1,5 @@
 import { Table, Button } from 'react-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap';
 import {api, config} from '../../services/api';
 
 export default function SurveyTable(props) {
@@ -8,8 +9,12 @@ export default function SurveyTable(props) {
         api.delete(`/surveys/${surveyId}`, 
             config
         ).then(res => {
-            console.log(res)
+            refreshPage();
         })
+    }
+
+    function refreshPage() {
+        window.location.reload();
     }
 
     return (
@@ -31,8 +36,10 @@ export default function SurveyTable(props) {
                             <td>{survey.description}</td>
                             <td>{survey.status}</td>
                             <td>
-                                <Button variant='success' size='sm' className='mx-1' href={`/surveys/${survey.id}`}>Open</Button>
-                                <Button variant='warning' size='sm' className='mx-1'>Edit</Button>
+                                <Button variant='success' size='sm' className='mx-1'>Open</Button>
+                                <LinkContainer to={`/survey/${survey.id}`}>
+                                    <Button variant='warning' size='sm' className='mx-1'>Edit</Button>
+                                </LinkContainer>
                                 <Button variant='danger' size='sm' className='mx-1' onClick={() => {deleteSurvey(survey.id)}}>Delete</Button>
                             </td>
                         </tr>

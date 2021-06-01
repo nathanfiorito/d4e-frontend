@@ -12,7 +12,7 @@ export default function Login() {
 
   async function submit() {
     signIn(username, password);
-    history.push('/');
+    history.push('surveys');
   }
 
   return (

@@ -10,7 +10,7 @@ export default function SurveyHeader(props) {
           </LinkContainer>
         </Nav.Item>
         <Nav.Item as="li">
-          <LinkContainer to="/create/surveys">
+          <LinkContainer to="/survey/create">
             <Nav.Link>Cadastrar</Nav.Link>
           </LinkContainer>
         </Nav.Item>

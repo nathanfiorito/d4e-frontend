@@ -17,7 +17,7 @@ export default function CreateSurvey() {
             body, 
             config
         ).then(res => {
-            console.log('deu certo')
+            
         }).catch(err => console.log(err))
     }
 

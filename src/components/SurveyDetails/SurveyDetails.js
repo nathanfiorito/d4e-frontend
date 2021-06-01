@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Spinner, Table, Button } from 'react-bootstrap';
 import { LinkContainer } from "react-router-bootstrap";
 
+import OptionsTable from '../OptionsTable/OptionsTable'
+
 export default function SurveyDetails(props) {
     const survey = props.survey;
     const [loading, setLoading] = useState(true);
@@ -16,10 +18,11 @@ export default function SurveyDetails(props) {
                 <h1>{survey.title}</h1>
                 <h1>{survey.description}</h1>
                 <h1>{survey.status}</h1>
-                <LinkContainer to={`${survey.id}/vote-option`}>
+                <LinkContainer to={`${survey.id}/create/vote-option`}>
                     <Button>Adicionar nova opção</Button>
                 </LinkContainer>
-                <Table>
+                <OptionsTable survey={survey}/>
+                {/* <Table>
                     <thead>
                         <tr>
                             <td>Opção</td>
@@ -38,7 +41,7 @@ export default function SurveyDetails(props) {
                             )
                         })}
                     </tbody>
-                </Table>
+                </Table> */}
                 
             </div>
             )}

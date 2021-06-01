@@ -7,6 +7,7 @@ import SignUp from './pages/SignUp/SignUp';
 import Home from './pages/Home/Home';
 import SurveyList from './pages/SurveyList/SurveyList';
 import CreateSurvey from './pages/CreateSurvey/CreateSurvey';
+import CreateVoteOption from './pages/CreateVoteOption/CreateVoteOption';
 import Survey from './pages/Survey/Survey';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -20,8 +21,9 @@ export default function App(){
             <AuthRoute path='/signin' exact={true} component={Login}/>
             <AuthRoute path='/signup' exact={true} component={SignUp}/>
             <PrivateRoute path='/surveys' exact={true} component={SurveyList}/>
-            <PrivateRoute path='/surveys/:id' exact={true} component={Survey}/>
-            <PrivateRoute path='/create/surveys' exact={true} component={CreateSurvey}/>
+            <PrivateRoute path='/survey/create' exact={true} component={CreateSurvey}/>
+            <PrivateRoute path='/survey/:surveyId' exact={true} component={Survey}/>
+            <PrivateRoute path='/survey/:surveyId/create/vote-option' exact={true} component={CreateVoteOption}/>
         </Switch>
     </BrowserRouter>
     )

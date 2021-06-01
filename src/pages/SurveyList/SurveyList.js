@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import {api, config} from "../../services/api"
-import {Spinner} from 'react-bootstrap';
+import {Container, Spinner} from 'react-bootstrap';
 import SurveyTable from "../../components/SurveyTable/SurveyTable";
 import SurveyHeader from "../../components/SurveyHeader/SurveyHeader";
 
@@ -21,7 +21,9 @@ export default function SurveyList(){
     return (
         <div>
             <SurveyHeader/>
-            <div>{loading ? <Spinner animation='border'/> : (<SurveyTable surveys={surveys}/>)}</div>
+            <Container>
+                <div>{loading ? <Spinner animation='border'/> : (<SurveyTable surveys={surveys}/>)}</div>
+            </Container>
         </div>
     )
 }
