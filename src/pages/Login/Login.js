@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
-import { signIn } from '../../services/auth';
+import { signIn, isAuthenticated } from '../../services/auth';
 
 import './Login.css';
 
@@ -11,8 +11,17 @@ export default function Login() {
   const history = useHistory();
 
   async function submit() {
-    signIn(username, password);
-    history.push('surveys');
+    signIn(username, password).then((result) => {
+      console.log('history')
+      history.push('/surveys')
+    })
+    
+    // signIn(username, password);
+    // console.log('loggado')
+    // if(isAuthenticated()) {
+    //   history.push('/surveys');
+    //   console.log('nao deu push')
+    // }
   }
 
   return (
